@@ -1,0 +1,36 @@
+[submodule "libstdc++"]
+	path = libstdc++
+	url = git@github.com:bedatadriven/renjin-libstdcxx.git
+[submodule "renjin"]
+	path = renjin
+	url = git@github.com:bedatadriven/renjin
+[submodule "ci"]
+	path = ci
+	url = git@bitbucket.org:bedatadriven/renjin-ci.git
+[submodule "gradle-plugin"]
+	path = gradle-plugin
+	url = git@github.com:bedatadriven/renjin-gradle-plugin.git
+[submodule "replacements/curl"]
+	path = replacements/curl
+	url = git@github.com:bedatadriven/curl.git
+[submodule "replacements/httpuv"]
+	path = replacements/httpuv
+	url = git@github.com:bedatadriven/httpuv.git
+[submodule "replacements/rJava"]
+	path = replacements/rJava
+	url = git@github.com:bedatadriven/rJava.git
+[submodule "replacements/utf8"]
+	path = replacements/utf8
+	url = git@github.com:bedatadriven/r-utf8.git
+[submodule "replacements/stringi"]
+	path = replacements/stringi
+	url = git@github.com:bedatadriven/stringi.git
+[submodule "replacements/xml2"]
+	path = replacements/xml2
+	url = git@github.com:bedatadriven/renjin-xml2
+[submodule "replacements/readxl"]
+	path = replacements/readxl
+	url = git@github.com:bedatadriven/readxl.git
+[submodule "replacements/json"]
+	path = replacements/json
+	url = git@github.com:bedatadriven/renjin-json.git
