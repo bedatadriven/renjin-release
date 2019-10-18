@@ -28,10 +28,6 @@ includeBuild('../libstdc++') {
 includeBuild '../replacements/utf8'
 includeBuild '../replacements/httpuv'
 
-includeBuild '../renjin-replacements/utf8'
-includeBuild '../renjin-replacements/httpuv'
-
-
 include 'cran:regress'
 include 'cran:Zelig'
 include 'cran:prabclus'
