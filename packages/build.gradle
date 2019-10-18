@@ -5,3 +5,6 @@ buildscript {
     classpath "org.renjin:renjin-gradle-plugin:+"
   }
 }
+
+apply from: 'gradle/report.gradle'
+

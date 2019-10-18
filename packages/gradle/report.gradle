@@ -1,0 +1,131 @@
+
+class Package {
+
+    String path
+    Map<String, TaskState> tasks = new HashMap<>()
+
+    Package(String path) {
+        this.path = path;
+    }
+
+
+    String getTaskLog(String name) {
+        return "../../${path.replace(':', '/')}/build/${name}.log";
+    }
+
+}
+
+def packageMap = new HashMap<>()
+
+
+def statusDescription = { TaskState task ->
+
+    if(task == null) {
+        return "";
+    }
+    if(task.upToDate) {
+        return "Up-to-date"
+    } else if(task.noSource) {
+        return "No source";
+    } else if(task.failure != null) {
+        return "Failure"
+    } else if(task.skipped) {
+        return "Skipped"
+    } else if(task.executed) {
+        return "Executed"
+    } else {
+        return "?";
+    }
+}
+
+def writeIndex = { File indexFile ->
+
+    PrintWriter pw = new PrintWriter(indexFile)
+    pw.println("""
+        <html>
+        <head>
+        <title>Package build report</title>
+        <link rel="stylesheet" href="style.css">
+        </head>
+        <body>
+        
+        <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Package</th>
+        """)
+
+    List<String> tasks = Arrays.asList("make", "compileGimple", "compileNamespace", "testNamespace");
+    for (String task : tasks) {
+        pw.println("<th scope=col>$task</th>");
+    }
+    pw.println("</tr>");
+    pw.println("</thead>");
+    pw.println("<tbody>");
+
+    for (Package pkg : packageMap.values()) {
+        pw.println("<tr>");
+        pw.println("<th>" + pkg.path + "</th>");
+
+        for (String task : tasks) {
+            String logHref = pkg.getTaskLog(task)
+            TaskState taskState = pkg.tasks.get(task);
+            if(taskState != null && taskState.failure != null) {
+                pw.println("""<td class="failed"><a href="$logHref">Failure</a></td>""")
+            } else if(taskState != null && (taskState.upToDate || taskState.executed)) {
+                pw.println("""<td class="passed"><a href="$logHref">${statusDescription(taskState)}</a></td>""")
+            } else {
+                pw.println("""<td>${statusDescription(taskState)}""")
+            }
+        }
+        pw.println("</tr>");
+    }
+    pw.println("</tbody>");
+    pw.println("</table>");
+    pw.close();
+    
+}
+
+gradle.taskGraph.addTaskExecutionListener(new TaskExecutionListener() {
+    @Override
+    void beforeExecute(Task task) {
+    }
+
+    @Override
+    void afterExecute(Task task, TaskState state) {
+        def pkg = packageMap.computeIfAbsent(task.getProject().getPath(), { path -> new Package(path) })
+        pkg.tasks.put(task.getName(), state);
+    }
+})
+
+gradle.addBuildListener(new BuildListener() {
+    @Override
+    void buildStarted(Gradle gradle) {
+    }
+
+    @Override
+    void settingsEvaluated(Settings settings) {
+    }
+
+    @Override
+    void projectsLoaded(Gradle gradle) {
+    }
+
+    @Override
+    void projectsEvaluated(Gradle gradle) {
+    }
+
+    @Override
+    void buildFinished(BuildResult result) {
+        def reportDir = new File(buildDir, "report");
+        reportDir.mkdirs()
+
+        def indexFile = new File(reportDir, "index.html")
+        writeIndex(indexFile)
+
+        def styleSourceFile = new File(project.projectDir, "gradle/style.css")
+        def styleOutFile = new File(buildDir, "report/style.css")
+        styleOutFile.text = styleSourceFile.text
+    }
+})
+

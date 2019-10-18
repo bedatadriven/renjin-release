@@ -1,0 +1,9 @@
+cran
+.idea
+.gradle
+.Rhistory
+.Rproj.user
+*.Rproj
+*.hprof
+build
+
