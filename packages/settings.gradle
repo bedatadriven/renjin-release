@@ -17,6 +17,9 @@ includeBuild('../renjin') {
         substitute module('org.renjin:stats') with project(':packages:stats')
         substitute module('org.renjin:tools') with project(':packages:tools')
         substitute module('org.renjin:methods') with project(':packages:methods')
+        substitute module('org.renjin:stats4') with project(':packages:stats4')
+        substitute module('org.renjin:utils') with project(':packages:utils')
+        substitute module('org.renjin:utils') with project(':packages:utils')
     }
 }
 
