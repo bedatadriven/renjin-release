@@ -34,3 +34,6 @@
 [submodule "replacements/json"]
 	path = replacements/json
 	url = git@github.com:bedatadriven/renjin-json.git
+[submodule "replacements/dbi"]
+	path = replacements/dbi
+	url = ./replacements/dbi

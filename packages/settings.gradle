@@ -32,6 +32,7 @@ includeBuild('../libstdc++') {
 
 includeBuild '../replacements/utf8'
 includeBuild '../replacements/httpuv'
+includeBuild '../replacements/dbi'
 
 include 'cran:regress'
 include 'cran:Zelig'
