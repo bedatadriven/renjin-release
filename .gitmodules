@@ -36,4 +36,4 @@
 	url = git@github.com:bedatadriven/renjin-json.git
 [submodule "replacements/dbi"]
 	path = replacements/dbi
-	url = ./replacements/dbi
+	url = git@github.com:bedatadriven/renjin-dbi.git
