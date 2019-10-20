@@ -25,6 +25,7 @@ magick
 # Could be replaced with RJDBC-based replacement
 RMariaDB
 RODBC
+odbc
 
 rgl
 tkrplot
@@ -34,10 +35,10 @@ nloptr
 # requires GDAL and related tools
 sf
 rgdal
+rgeos
+
 
 units # requires libudunits2-dev 
-
-rjags
 
 av # requires libavfilter-dev
 
@@ -47,8 +48,10 @@ git2r # libgit2-dev
 gsl
 gmp
 Rmpfr
+Rmpi
 
 rjags
+runjags
 
 RSiena
 
@@ -61,4 +64,8 @@ jqr
 
 protolite
 
+pdftools
+qpdf
+
+XML
 

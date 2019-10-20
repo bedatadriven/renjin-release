@@ -55,7 +55,7 @@ def writeIndex = { File indexFile ->
             <th>Package</th>
         """)
 
-    List<String> tasks = Arrays.asList("make", "compileGimple", "compileNamespace", "testNamespace");
+    List<String> tasks = Arrays.asList("configure", "make", "compileGimple", "compileNamespace", "testNamespace");
     for (String task : tasks) {
         pw.println("<th scope=col>$task</th>");
     }
