@@ -1,0 +1,64 @@
+
+# These packages cannot be built with Renjin because 
+# of a dependency on an external native library, or someother reason.
+
+# If they are "suggested" by other packages, they will be excluded from the 
+# package graph, but if they are required, then they will be built, but without the
+# native compilation or configure step.
+
+BRugs  
+
+openssl
+ssh
+
+
+# The following are graphics-related packages
+# that we could ultimately provide replacements for,
+# though the equivalent functionality is largely present
+# in Renjin already.
+Cairo 
+rsvg
+gifski
+jpeg
+magick
+
+# Could be replaced with RJDBC-based replacement
+RMariaDB
+RODBC
+
+rgl
+tkrplot
+
+nloptr
+
+# requires GDAL and related tools
+sf
+rgdal
+
+units # requires libudunits2-dev 
+
+rjags
+
+av # requires libavfilter-dev
+
+
+git2r # libgit2-dev
+
+gsl
+gmp
+Rmpfr
+
+rjags
+
+RSiena
+
+V8
+
+pcaL1  # COIN-OR Clp (>= 1.12.0)
+
+fftw
+jqr
+
+protolite
+
+
