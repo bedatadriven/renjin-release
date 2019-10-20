@@ -37,3 +37,7 @@
 [submodule "replacements/dbi"]
 	path = replacements/dbi
 	url = git@github.com:bedatadriven/renjin-dbi.git
+
+[submodule "packages/cran/rlang"]
+	path = packages/cran/rlang
+	url = git@github.com:bedatadriven/org.renjin.cran.rlang.git
