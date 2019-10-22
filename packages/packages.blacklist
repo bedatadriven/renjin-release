@@ -7,7 +7,7 @@
 # native compilation or configure step.
 
   
-
+# Wrappers for crypto libraries
 openssl
 ssh
 sodium
@@ -24,6 +24,11 @@ jpeg
 magick
 webp
 gdtools # Requires Cairo
+
+# Font-related wrappers
+freetypeharfbuzz
+showtext
+sysfonts
 
 # Could be replaced with RJDBC-based replacement
 RMariaDB
@@ -52,10 +57,14 @@ av # requires libavfilter-dev
 
 git2r # libgit2-dev
 
+# Relies on gmp/gsl/mpfr/mpfi or other math libraries
 gsl
 gmp
 Rmpfr
 Rmpi
+rcdd
+topicmodels
+
 
 rjags
 runjags
@@ -103,8 +112,11 @@ RcppParallel
 # requires rdf library
 redland
 
+# Depends on external libraries/programs
 Rsymphony
 OpenMx
+Rglpk
+
 
 # ore: An R Interface to the Onigmo Regular Expression Library
 # requires pointer size to be 64bit. (Renjin cross compiles to 32-bit)
@@ -116,13 +128,33 @@ ore
 # that may not fully implement the C++11 standard
 osmdata
 
+# Relies on USE_RINTERNALS
+# Bad!
+pryr 
+
+# readr: Involves strange black magic with shared libraries during build
+# There seems to be a fix for this in their github repo:
+# https://github.com/tidyverse/readr/issues/1008
+# But it is not released yet
+readr
+
+# Build process is complicated
+rstan
+rstanarm
 
 # TODO: these packages crash the gcc-bridge plugin (plugin.c)
 # TO FIX!!
 cubature
 Matching
+fs
 
-
-
- 
+# TODO: C/C++ compilation errors.
+commonmark
+FSelectorRcpp
+hunspell
+estimatr
+quanteda
+Runuran
+xgboost
+PCICt
 
