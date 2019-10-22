@@ -6,11 +6,12 @@
 # package graph, but if they are required, then they will be built, but without the
 # native compilation or configure step.
 
-BRugs  
+  
 
 openssl
 ssh
-
+sodium
+PKI
 
 # The following are graphics-related packages
 # that we could ultimately provide replacements for,
@@ -26,6 +27,8 @@ magick
 RMariaDB
 RODBC
 odbc
+mongolite
+RPostgres # old package? We have a replacement for RPostgreSQL
 
 rgl
 tkrplot
@@ -36,6 +39,7 @@ nloptr
 sf
 rgdal
 rgeos
+lwgeom
 
 
 units # requires libudunits2-dev 
@@ -52,10 +56,12 @@ Rmpi
 
 rjags
 runjags
+BRugs
 
 RSiena
 
 V8
+rPython
 
 pcaL1  # COIN-OR Clp (>= 1.12.0)
 
@@ -63,9 +69,32 @@ fftw
 jqr
 
 protolite
+RProtoBuf
 
+# PDF/OCR library wrappers
 pdftools
 qpdf
+tesseract
 
 XML
+
+
+
+# we might be able to compile the feather package,
+# but it will require a fair bit of work.
+# A replacement that uses the Java feather library might be more useful
+feather
+
+ncdf4 
+RNetCDF
+
+# Not sure what the configure script does, but it doesn't work.
+nimble
+
+# This will require some work
+# but only because the configuration script is so byzantine
+RcppParallel
+
+# requires rdf library
+redland
 
