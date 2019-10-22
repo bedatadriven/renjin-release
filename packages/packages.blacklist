@@ -23,6 +23,7 @@ gifski
 jpeg
 magick
 webp
+gdtools # Requires Cairo
 
 # Could be replaced with RJDBC-based replacement
 RMariaDB
@@ -68,7 +69,8 @@ rPython
 pcaL1  # COIN-OR Clp (>= 1.12.0)
 
 fftw
-jqr
+fftwtools
+
 
 protolite
 RProtoBuf
@@ -81,6 +83,7 @@ Rpoppler
 
 XML
 xslt
+jqr
 
 # we might be able to compile the feather package,
 # but it will require a fair bit of work.
@@ -103,4 +106,23 @@ redland
 Rsymphony
 OpenMx
 
+# ore: An R Interface to the Onigmo Regular Expression Library
+# requires pointer size to be 64bit. (Renjin cross compiles to 32-bit)
+ore
+
+
+# osmdata: Compiler error in a file included from Rcpp
+# Likely related to the fact that we are using an older version of GCC (4.7) 
+# that may not fully implement the C++11 standard
+osmdata
+
+
+# TODO: these packages crash the gcc-bridge plugin (plugin.c)
+# TO FIX!!
+cubature
+Matching
+
+
+
+ 
 
