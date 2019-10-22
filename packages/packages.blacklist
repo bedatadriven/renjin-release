@@ -22,6 +22,7 @@ rsvg
 gifski
 jpeg
 magick
+webp
 
 # Could be replaced with RJDBC-based replacement
 RMariaDB
@@ -43,6 +44,7 @@ lwgeom
 
 
 units # requires libudunits2-dev 
+udunits2
 
 av # requires libavfilter-dev
 
@@ -75,10 +77,10 @@ RProtoBuf
 pdftools
 qpdf
 tesseract
+Rpoppler
 
 XML
-
-
+xslt
 
 # we might be able to compile the feather package,
 # but it will require a fair bit of work.
@@ -97,4 +99,8 @@ RcppParallel
 
 # requires rdf library
 redland
+
+Rsymphony
+OpenMx
+
 
