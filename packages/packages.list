@@ -621,6 +621,7 @@ org.renjin.cran:magic:1.5-8
 org.renjin.cran:magrittr:1.5
 org.renjin.cran:mail:1.0
 org.renjin.cran:mallet:1.0
+org.renjin.cran:manipulate:1.0.1
 org.renjin.cran:manipulateWidget:0.10.0
 org.renjin.cran:mapdata:2.3.0
 org.renjin.cran:mapproj:1.2.6

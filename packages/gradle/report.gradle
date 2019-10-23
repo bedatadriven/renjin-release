@@ -9,8 +9,8 @@ class Package {
     }
 
 
-    String getTaskLog(String name) {
-        return "../../${path.replace(':', '/')}/build/${name}.log";
+    File getTaskFile(Project project, String name) {
+        return new File(project.projectDir, "${path.replace(':', '/')}/build/${name}.log")
     }
 
 }
@@ -38,7 +38,7 @@ def statusDescription = { TaskState task ->
     }
 }
 
-def writeIndex = { File indexFile ->
+def writeIndex = { Project project, File indexFile ->
 
     PrintWriter pw = new PrintWriter(indexFile)
     pw.println("""
@@ -68,12 +68,17 @@ def writeIndex = { File indexFile ->
         pw.println("<th>" + pkg.path + "</th>");
 
         for (String task : tasks) {
-            String logHref = pkg.getTaskLog(task)
+            File logFile = pkg.getTaskFile(project, task)
+            File htmlLogFile = new File(indexFile.parentFile, pkg.path.replace(':', '_') + "." + logFile.name)
+            if(logFile.exists()) {
+                htmlLogFile.text = logFile.text
+            }
+
             TaskState taskState = pkg.tasks.get(task);
             if(taskState != null && taskState.failure != null) {
-                pw.println("""<td class="failed"><a href="$logHref">Failure</a></td>""")
+                pw.println("""<td class="failed"><a href="${htmlLogFile.name}">Failure</a></td>""")
             } else if(taskState != null && (taskState.upToDate || taskState.executed)) {
-                pw.println("""<td class="passed"><a href="$logHref">${statusDescription(taskState)}</a></td>""")
+                pw.println("""<td class="passed">${statusDescription(taskState)}</td>""")
             } else {
                 pw.println("""<td>${statusDescription(taskState)}""")
             }
@@ -121,7 +126,7 @@ gradle.addBuildListener(new BuildListener() {
         reportDir.mkdirs()
 
         def indexFile = new File(reportDir, "index.html")
-        writeIndex(indexFile)
+        writeIndex(project, indexFile)
 
         def styleSourceFile = new File(project.projectDir, "gradle/style.css")
         def styleOutFile = new File(buildDir, "report/style.css")
