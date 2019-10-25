@@ -38,6 +38,28 @@ def statusDescription = { TaskState task ->
     }
 }
 
+def calcPercent = { String task ->
+
+    double count = 0;
+    double failed = 0;
+    boolean ran = false;
+    for(Package pkg in packageMap.values()) {
+        count ++;
+        def state = pkg.tasks.get(task)
+        if(state == null || state.failure) {
+            failed++;
+        }
+        if(state != null) {
+            ran = true;
+        }
+    }
+    if(ran) {
+        return Math.round((count - failed) / count * 100d) + "%"
+    } else {
+        return "-"
+    }
+}
+
 def writeIndex = { Project project, File indexFile ->
 
     PrintWriter pw = new PrintWriter(indexFile)
@@ -47,15 +69,33 @@ def writeIndex = { Project project, File indexFile ->
         <title>Package build report</title>
         <link rel="stylesheet" href="style.css">
         </head>
-        <body>
-        
+        <body>""")
+
+
+    List<String> tasks = Arrays.asList("configure", "make", "compileGimple", "compileNamespace", "testNamespace");
+
+    pw.println("""
+        <h2>Task summary</h2>
+        <table class="table table-bordered">
+        <thead>
+            <tr><th>Task</th><th>Percentage complete</th></tr>
+        </thead>
+        <tbody>""");
+
+    for (String task : tasks) {
+        pw.println("<tr><th>${task}</th><td>${calcPercent(task)}</td></tr>");
+    }
+
+    pw.println("</tbody></table>")
+
+    pw.println("""
+        <h2>Package summary</h2>
         <table class="table table-bordered">
         <thead>
         <tr>
             <th>Package</th>
         """)
 
-    List<String> tasks = Arrays.asList("configure", "make", "compileGimple", "compileNamespace", "testNamespace");
     for (String task : tasks) {
         pw.println("<th scope=col>$task</th>");
     }
