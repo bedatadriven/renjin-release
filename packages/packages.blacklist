@@ -158,3 +158,8 @@ Runuran
 xgboost
 PCICt
 
+# TODO: still not clear what level of functionality
+# we can expect without a major effort
+data.table
+
+
