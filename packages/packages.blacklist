@@ -165,4 +165,15 @@ rpanel
 # we can expect without a major effort
 data.table
 
+# TODO: later requires posix support, pipes, etc
+later
+
+# TODO: java class files too large
+spatstat
+
+# TODO: bizarrely large fortran method.
+sm
+
+# TODO: 1087 macro-generated functions :-(
+matrixStats
 
