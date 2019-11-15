@@ -200,7 +200,7 @@ DMwR         # NPE in parse
 liquidSVM    # make compile error
 diptest      # error executing data script
 plotrix      # error reading data file
-
+elasticnet   # no namespace
 		
 
 

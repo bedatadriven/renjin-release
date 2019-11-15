@@ -324,7 +324,6 @@ org.renjin.cran:eaf:1.8
 org.renjin.cran:egg:0.4.2
 org.renjin.cran:eha:2.6.0
 org.renjin.cran:eiPack:0.1-9
-org.renjin.cran:elasticnet:1.02
 org.renjin.cran:ellipse:0.4.1
 org.renjin.cran:ellipsis:0.2.0
 org.renjin.cran:elliptic:1.4-0
@@ -843,7 +842,6 @@ org.renjin.cran:spacetime:1.2-2
 org.renjin.cran:spam:2.2-2
 org.renjin.cran:spam64:2.2-2
 org.renjin.cran:sparkline:2.0
-org.renjin.cran:sparseLDA:0.1-9
 org.renjin.cran:sparsepp:1.22
 org.renjin.cran:spatial:7.3-11
 org.renjin.cran:spatstat.data:1.4-0
