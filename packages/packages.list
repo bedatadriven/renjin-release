@@ -16,7 +16,6 @@ org.renjin.cran:BayesX:0.3-0
 org.renjin.cran:BayesXsrc:3.0-1
 org.renjin.cran:BiasedUrn:1.07
 org.renjin.cran:BiocManager:1.30.4
-org.renjin.cran:Brobdingnag:1.2-6
 org.renjin.cran:BsMD:2013.0718-1
 org.renjin.cran:C50:0.1.2
 org.renjin.cran:CDM:7.3-17
@@ -31,7 +30,6 @@ org.renjin.cran:DAAG:1.22.1
 org.renjin.cran:DBI:1.0.0
 org.renjin.cran:DBItest:1.5-2
 org.renjin.cran:DEoptimR:1.0-8
-org.renjin.cran:DMwR:0.4.1
 org.renjin.cran:DPpackage:1.1-7.4
 org.renjin.cran:DRR:0.0.3
 org.renjin.cran:DendSer:1.0.1
@@ -69,7 +67,6 @@ org.renjin.cran:HSAUR:1.3-9
 org.renjin.cran:HSAUR2:1.1-17
 org.renjin.cran:HSAUR3:1.0-9
 org.renjin.cran:HaploSim:1.8.4
-org.renjin.cran:IRdisplay:0.7.0
 org.renjin.cran:ISOcodes:2019.04.22
 org.renjin.cran:ISwR:2.0-7
 org.renjin.cran:Iso:0.0-18
@@ -97,7 +94,6 @@ org.renjin.cran:NADA:1.6-1
 org.renjin.cran:NHANES:2.1.0
 org.renjin.cran:NISTunits:1.0.1
 org.renjin.cran:NLP:0.2-0
-org.renjin.cran:NMF:0.21.0
 org.renjin.cran:NeuralNetTools:1.5.2
 org.renjin.cran:OAIHarvester:0.3-0
 org.renjin.cran:OpenMPController:0.2-5
@@ -111,7 +107,6 @@ org.renjin.cran:R.devices:2.16.0
 org.renjin.cran:R.matlab:3.6.2
 org.renjin.cran:R.methodsS3:1.7.1
 org.renjin.cran:R.oo:1.22.0
-org.renjin.cran:R.rsp:0.43.1
 org.renjin.cran:R.utils:2.9.0
 org.renjin.cran:R2BayesX:1.1-1
 org.renjin.cran:R2HTML:2.3.2
@@ -131,7 +126,6 @@ org.renjin.cran:ROCR:1.0-7
 org.renjin.cran:ROI:0.3-2
 org.renjin.cran:RPostgreSQL:10.0.20*
 org.renjin.cran:RRF:1.9
-org.renjin.cran:RSNNS:0.4-11
 org.renjin.cran:RSQLite:10.0.20*
 org.renjin.cran:RSVGTipsDevice:1.0-7
 org.renjin.cran:RSpectra:0.15-0
@@ -195,7 +189,6 @@ org.renjin.cran:antiword:1.3
 org.renjin.cran:aod:1.3.1
 org.renjin.cran:ape:5.3
 org.renjin.cran:aplpack:1.3.2
-org.renjin.cran:argon2:0.2-0
 org.renjin.cran:argonR:0.1.0
 org.renjin.cran:arules:1.6-3
 org.renjin.cran:askpass:1.1
@@ -213,9 +206,7 @@ org.renjin.cran:bbmle:1.0.20
 org.renjin.cran:bdsmatrix:1.3-3
 org.renjin.cran:beanplot:1.2
 org.renjin.cran:beeswarm:0.2.3
-org.renjin.cran:bench:1.0.2
 org.renjin.cran:benchr:0.2.3
-org.renjin.cran:betareg:3.1-2
 org.renjin.cran:bibtex:0.4.2
 org.renjin.cran:biclust:2.0.1
 org.renjin.cran:biglm:0.9-1
@@ -233,7 +224,6 @@ org.renjin.cran:boot:1.3-22
 org.renjin.cran:bootstrap:2019.6
 org.renjin.cran:brew:1.0-6
 org.renjin.cran:brglm:0.6.2
-org.renjin.cran:bridgesampling:0.6-0
 org.renjin.cran:brnn:0.7
 org.renjin.cran:broom:0.5.2
 org.renjin.cran:broom.mixed:0.2.4
@@ -241,7 +231,6 @@ org.renjin.cran:bst:0.3-17
 org.renjin.cran:ca:0.71
 org.renjin.cran:caTools:1.17.1.2
 org.renjin.cran:calibrate:1.7.2
-org.renjin.cran:callr:3.2.0
 org.renjin.cran:carData:3.0-2
 org.renjin.cran:care:1.1.10
 org.renjin.cran:catdata:1.2.1
@@ -297,7 +286,6 @@ org.renjin.cran:date:1.2-38
 org.renjin.cran:dbplyr:1.4.2
 org.renjin.cran:dbscan:1.1-3
 org.renjin.cran:dcurver:0.9.1
-org.renjin.cran:ddalpha:1.3.9
 org.renjin.cran:deSolve:1.23
 org.renjin.cran:debugme:1.1.0
 org.renjin.cran:deepnet:0.2
@@ -316,7 +304,6 @@ org.renjin.cran:diffobj:0.2.3
 org.renjin.cran:diffusionMap:1.1-0.1
 org.renjin.cran:digest:0.6.19
 org.renjin.cran:dimRed:0.2.3
-org.renjin.cran:diptest:0.75-7
 org.renjin.cran:directlabels:2018.05.22
 org.renjin.cran:dismo:1.1-4
 org.renjin.cran:disposables:1.0.3
@@ -324,7 +311,6 @@ org.renjin.cran:diveMove:1.4.5
 org.renjin.cran:dlnm:2.3.9
 org.renjin.cran:doMC:1.3.5
 org.renjin.cran:doParallel:1.0.14
-org.renjin.cran:doRNG:1.7.1
 org.renjin.cran:doRedis:1.1.1
 org.renjin.cran:dotCall64:1.0-0
 org.renjin.cran:dotwhisker:0.5.0
@@ -335,7 +321,6 @@ org.renjin.cran:dygraphs:1.1.1.6
 org.renjin.cran:dynamicTreeCut:1.63-1
 org.renjin.cran:e1071:1.7-2
 org.renjin.cran:eaf:1.8
-org.renjin.cran:earth:5.1.1
 org.renjin.cran:egg:0.4.2
 org.renjin.cran:eha:2.6.0
 org.renjin.cran:eiPack:0.1-9
@@ -392,7 +377,6 @@ org.renjin.cran:fitdistrplus:1.0-14
 org.renjin.cran:flare:1.6.0
 org.renjin.cran:flashClust:1.01-2
 org.renjin.cran:flexclust:1.4-0
-org.renjin.cran:flexmix:2.3-15
 org.renjin.cran:flexsurv:1.1.1
 org.renjin.cran:fontBitstreamVera:0.1.1
 org.renjin.cran:fontLiberation:0.1.0
@@ -407,7 +391,6 @@ org.renjin.cran:forge:0.2.0
 org.renjin.cran:formatR:1.7
 org.renjin.cran:formattable:0.2.0.1
 org.renjin.cran:fortunes:1.5-4
-org.renjin.cran:fpc:2.2-3
 org.renjin.cran:fracdiff:1.4-2
 org.renjin.cran:frbs:3.0-0
 org.renjin.cran:fst:0.9.0
@@ -434,8 +417,6 @@ org.renjin.cran:gee:4.13-19
 org.renjin.cran:geepack:1.2-1
 org.renjin.cran:geiger:2.0.6.2
 org.renjin.cran:generics:0.0.2
-org.renjin.cran:geoR:1.7-5.2.1
-org.renjin.cran:geoRglm:0.9-11
 org.renjin.cran:geometry:0.4.1
 org.renjin.cran:geosphere:1.5-10
 org.renjin.cran:getPass:0.2-2
@@ -464,10 +445,8 @@ org.renjin.cran:glmx:0.1-1
 org.renjin.cran:globals:0.12.4
 org.renjin.cran:glue:1.3.1
 org.renjin.cran:gmm:1.6-2
-org.renjin.cran:gmnl:1.1-3.1
 org.renjin.cran:gmodels:2.18.1
 org.renjin.cran:gnm:1.1-0
-org.renjin.cran:gof:0.9.1
 org.renjin.cran:goftest:1.1-1
 org.renjin.cran:googleVis:0.6.4
 org.renjin.cran:gower:0.2.1
@@ -484,7 +463,6 @@ org.renjin.cran:gstat:2.0-2
 org.renjin.cran:gsubfn:0.7
 org.renjin.cran:gtable:0.3.0
 org.renjin.cran:gtools:3.8.1
-org.renjin.cran:h2o:3.24.0.5
 org.renjin.cran:hdi:0.1-7
 org.renjin.cran:here:0.1
 org.renjin.cran:hexView:0.3-4
@@ -499,7 +477,6 @@ org.renjin.cran:htmltools:0.3.6
 org.renjin.cran:htmlwidgets:1.3
 org.renjin.cran:httpcode:0.2.0
 org.renjin.cran:httpuv:null*
-org.renjin.cran:huge:1.3.2
 org.renjin.cran:huxtable:4.6.0
 org.renjin.cran:hypergeo:1.2-13
 org.renjin.cran:ibdreg:0.2.5
@@ -539,7 +516,6 @@ org.renjin.cran:kinship2:1.8.4
 org.renjin.cran:kknn:1.3.1
 org.renjin.cran:kmi:0.5.5
 org.renjin.cran:knitr:1.23
-org.renjin.cran:kohonen:3.0.8
 org.renjin.cran:ks:1.11.5
 org.renjin.cran:laGP:1.5-3
 org.renjin.cran:labeling:0.3
@@ -563,7 +539,6 @@ org.renjin.cran:lhs:1.0.1
 org.renjin.cran:libcoin:1.0-4
 org.renjin.cran:likert:1.3.5
 org.renjin.cran:linprog:0.9-2
-org.renjin.cran:liquidSVM:1.2.2.1
 org.renjin.cran:listenv:0.7.0
 org.renjin.cran:lle:1.1
 org.renjin.cran:lmodel2:1.7-3
@@ -607,10 +582,8 @@ org.renjin.cran:mco:1.0.13
 org.renjin.cran:mda:0.4-10
 org.renjin.cran:measurements:1.4.0
 org.renjin.cran:measures:0.2
-org.renjin.cran:memisc:0.99.17.2
 org.renjin.cran:memoise:1.1.0
 org.renjin.cran:metafor:2.1-0
-org.renjin.cran:mfx:1.2-2
 org.renjin.cran:mgcv:1.8-28
 org.renjin.cran:microbenchmark:1.4-6
 org.renjin.cran:mime:0.7
@@ -687,7 +660,6 @@ org.renjin.cran:packrat:0.5.0
 org.renjin.cran:pamr:1.56.1
 org.renjin.cran:pan:1.6
 org.renjin.cran:pander:0.6.3
-org.renjin.cran:parallelMap:1.4
 org.renjin.cran:parsedate:1.2.0
 org.renjin.cran:partykit:1.2-4
 org.renjin.cran:pbapply:1.4-0
@@ -712,16 +684,11 @@ org.renjin.cran:pinp:0.0.7
 org.renjin.cran:pipeR:0.6.1.3
 org.renjin.cran:pixmap:0.4-11
 org.renjin.cran:pkgKitten:0.1.4
-org.renjin.cran:pkgbuild:1.0.3
 org.renjin.cran:pkgconfig:2.0.2
-org.renjin.cran:pkgload:1.0.2
-org.renjin.cran:pkgmaker:0.27
 org.renjin.cran:plm:2.0-2
 org.renjin.cran:plogr:0.2.0
 org.renjin.cran:plot3D:1.1.1
 org.renjin.cran:plotlyGeoAssets:0.0.2
-org.renjin.cran:plotmo:3.5.5
-org.renjin.cran:plotrix:3.7-6
 org.renjin.cran:pls:2.7-1
 org.renjin.cran:plumber:0.4.6
 org.renjin.cran:plyr:1.8.4
@@ -736,7 +703,6 @@ org.renjin.cran:poweRlaw:0.70.2
 org.renjin.cran:prabclus:2.3-1
 org.renjin.cran:praise:1.0.0
 org.renjin.cran:praznik:6.0.0
-org.renjin.cran:pre:0.7.1
 org.renjin.cran:prefmod:0.8-34
 org.renjin.cran:prettyGraphs:2.1.6
 org.renjin.cran:prettyR:2.2-3
@@ -774,7 +740,6 @@ org.renjin.cran:qvcalc:1.0.0
 org.renjin.cran:rFerns:3.0.0
 org.renjin.cran:rJava:0.9-8-renjin-17*
 org.renjin.cran:randomForest:4.6-14
-org.renjin.cran:randomForestSRC:2.9.0
 org.renjin.cran:randomizr:0.18.0
 org.renjin.cran:randtoolbox:1.30.0
 org.renjin.cran:ranger:0.11.2
@@ -797,7 +762,6 @@ org.renjin.cran:rem:1.3.1
 org.renjin.cran:rematch:1.0.1
 org.renjin.cran:rematch2:2.0.1
 org.renjin.cran:remotes:2.1.0
-org.renjin.cran:repr:1.0.1
 org.renjin.cran:repurrrsive:0.1.0
 org.renjin.cran:reshape:0.8.8
 org.renjin.cran:reshape2:1.4.3
@@ -814,7 +778,6 @@ org.renjin.cran:rmutil:1.1.3
 org.renjin.cran:rnaturalearthdata:0.1.0
 org.renjin.cran:rncl:0.8.3
 org.renjin.cran:rngWELL:0.10-5
-org.renjin.cran:rngtools:1.3.1.1
 org.renjin.cran:robumeta:2.0
 org.renjin.cran:robust:0.4-18
 org.renjin.cran:robustbase:0.93-5
@@ -850,7 +813,6 @@ org.renjin.cran:segmented:1.0-0
 org.renjin.cran:selectr:0.4-1
 org.renjin.cran:semTools:0.5-1
 org.renjin.cran:sendmailR:1.2-1
-org.renjin.cran:seqinr:3.4-5
 org.renjin.cran:seriation:1.2-7
 org.renjin.cran:servr:0.14
 org.renjin.cran:sessioninfo:1.1.1
@@ -984,7 +946,6 @@ org.renjin.cran:visNetwork:2.0.7
 org.renjin.cran:wavelets:0.3-0.1
 org.renjin.cran:waveslim:1.7.5.1
 org.renjin.cran:webmockr:0.3.4
-org.renjin.cran:webshot:0.5.1
 org.renjin.cran:wesanderson:0.3.6
 org.renjin.cran:whisker:0.3-2
 org.renjin.cran:withr:2.1.2

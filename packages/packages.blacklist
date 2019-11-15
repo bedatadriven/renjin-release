@@ -177,3 +177,30 @@ sm
 # TODO: 1087 macro-generated functions :-(
 matrixStats
 
+# TODO: rest of package failures. to circle back later
+Brobdingnag  # S4
+flexmix      # namespace info problem
+RSNNS        # GimpleOp.VIEW_CONVERT_EXPR
+gof          # GCC-bridge produces invalid bytecode
+parallelMap
+bench        # S4
+geoR         # GCC-bridge runtime pointer out of bounds?
+R.rsp        # regex problem
+repr         # fetchRdDB
+kohonen      # GCC-Bridge NPE
+callr        #  IOException while loading package org.renjin.cran:ps: Expected 0 arguments, found 2 in call to ps__init
+huge         # make error
+argon2       # op: RROTATE_EXPR
+randomForestSRC  # gimple_omp_parallel
+pkgmaker     # parse error
+ddalpha      # UnsupportedOperationException: type: real128
+seqinr       # EvalException: Could not find dataset 'sysdata'
+h2o          # java.lang.NoClassDefFoundError: org/renjin/gcc/runtime/ObjectPtr
+DMwR         # NPE in parse
+liquidSVM    # make compile error
+diptest      # error executing data script
+plotrix      # error reading data file
+
+		
+
+
