@@ -202,6 +202,10 @@ diptest      # error executing data script
 plotrix      # error reading data file
 elasticnet   # no namespace
 lsei         # fortran array compiler problem
+reticulate   # GCC-bridge produces invalid bytecode
+ranger       # GCC-bridge produces invalid bytecode
+TMB          # Object '.shlib_internal' not found
+
 
 		
 
