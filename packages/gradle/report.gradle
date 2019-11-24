@@ -1,4 +1,32 @@
 
+class TestResult {
+
+    int testCount = 0
+    int errorCount = 0
+    int failureCount = 0
+
+    TestResult(File xmlFile) {
+        def testsuites = new groovy.util.XmlSlurper().parseText(xmlFile.text)
+        testsuites.testsuite.each { suite ->
+            testCount += suite["@tests"]
+            errorCount += suite["@errors"]
+            failureCount += suite["@failures"]
+        }
+    }
+}
+
+class TestResultList {
+
+    List<TestResult> results;
+    int testCount = 0
+    int testPassCount = 0;
+
+    TestResultList(List<TestResult> results) {
+        this.results = results;
+        
+    }
+}
+
 class Package {
 
     String path
@@ -11,6 +39,17 @@ class Package {
 
     File getTaskFile(Project project, String name) {
         return new File(project.projectDir, "${path.replace(':', '/')}/build/${name}.log")
+    }
+
+    List<TestResult> getTestResults() {
+        def list = []
+        def reportDir = new File(project.projectDir, "${path.replace(':', '/')}/build/renjin-test-reports")
+        reportDir.eachFile(FileType.FILES) {
+            if(it.name.endsWith(".xml")) {
+                list.add(new TestResult(it))
+            }
+        }
+        return list
     }
 
 }
@@ -99,6 +138,7 @@ def writeIndex = { Project project, File indexFile ->
     for (String task : tasks) {
         pw.println("<th scope=col>$task</th>");
     }
+    pw.println("<th scope=col>Tests</th>")
     pw.println("</tr>");
     pw.println("</thead>");
     pw.println("<tbody>");
@@ -123,6 +163,7 @@ def writeIndex = { Project project, File indexFile ->
                 pw.println("""<td>${statusDescription(taskState)}""")
             }
         }
+
         pw.println("</tr>");
     }
     pw.println("</tbody>");

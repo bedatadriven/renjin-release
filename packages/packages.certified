@@ -27,6 +27,7 @@ calibrate
 carData
 care
 CircStats
+class
 classInt
 clipr
 clisymbols
@@ -89,6 +90,7 @@ gpclib
 gridBase
 gridExtra
 grouped
+gss
 gtable
 here
 highlight
@@ -203,6 +205,7 @@ scatterplot3d
 scico
 sda
 servr
+sgeostat
 shape
 shapefiles
 SimDesign
@@ -215,6 +218,7 @@ spam64
 sparsepp
 spatstat.data
 spd
+spls
 stable
 statnet
 stepPlr
@@ -239,6 +243,7 @@ VarianceGamma
 Vdgraph
 viridis
 viridisLite
+waveslim
 wesanderson
 whisker
 xergm.common
