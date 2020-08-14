@@ -14,6 +14,13 @@ jobs:
     - name: Install build dependencies
       run: sudo apt-get install openjdk-8-jdk make gcc-4.7 gcc-4.7-plugin-dev gfortran-4.7 g++-4.7 gcc-4.7.multilib g++-4.7-multilib libz-dev
     - name: Download package sources
-      run: cd tools && ./gradlew setupPackages
+      uses: eskatos/gradle-command-action@v1
+      with:
+        build-root-directory: tools
+        arguments: setupPackages
     - name: Test
-      run: cd packages && ./gradlew cran:digest:test
+      uses: eskatos/gradle-command-action@v1
+      with:
+        build-root-directory: packages
+        arguments: cran:digest:test
+
