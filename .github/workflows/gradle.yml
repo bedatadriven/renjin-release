@@ -20,12 +20,11 @@ jobs:
       uses: eskatos/gradle-command-action@v1
       with:
         arguments: setupPackages
-        build-root-directory: tools
-        wrapper-directory: tools/gradle
+        build-root-directory: ./tools
 
     - name: Test
       uses: eskatos/gradle-command-action@v1
       with:
         arguments: cran:digest:test
-        build-root-directory: packages
-        wrapper-directory: packages/gradle
+        build-root-directory: ./packages
+
