@@ -54,6 +54,8 @@ udunits2
 
 av # requires libavfilter-dev
 
+igraph
+
 
 git2r # libgit2-dev
 
