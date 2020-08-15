@@ -19,6 +19,12 @@ The structure includes:
 
 `libstdc++`: Renjin's build of the C++ standard library
 
+## Checkout
+
+This repository includes related projects as git submodules. To checkout all the submodules, run:
+
+    git submodule update --init --recursive
+
 
 ## Testing 
 
