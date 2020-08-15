@@ -42,6 +42,8 @@ absolute path to Renjin's (adapted) header files. You can add the following line
 ~/.gradle/gradle.properties file:
 
     renjinHomeDir=$REPO_PATH/renjin/tools/gnur-installation/src/main/resources
+    gccBridgePlugin=$REPO_PATH/renjin/tools/gcc-bridge/compiler/build/bridge.so
+
 
 Where REPO_PATH is the absolute path of the directory to which you have checked out the renjin-release repo. 
 
