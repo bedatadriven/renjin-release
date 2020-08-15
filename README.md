@@ -23,13 +23,21 @@ The structure includes:
 ## Testing 
 
 The [packages/packages.list] contains a list of CRAN (and eventually BioConductor) packages to build. 
-The intention is that this list only includes packages that 
+The intention is that this list only includes packages that will work well with Renjin.
 
 
 To download the included packages and prepare the build, run:
 
     cd tools && ./gradlew setupPackages
 
+
+Currently, in order to compile packages with C/C++/Fortran code, it is neccessary to provide the 
+absolute path to Renjin's (adapted) header files. You can add the following line to your 
+~/.gradle/gradle.properties file:
+
+    renjinHomeDir=$REPO_PATH/renjin/tools/gnur-installation/src/main/resources
+
+Where REPO_PATH is the absolute path of the directory to which you have checked out the renjin-release repo. 
 
 Then an individual package can be built and tested by running:
 

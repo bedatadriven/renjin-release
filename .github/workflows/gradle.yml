@@ -20,6 +20,6 @@ jobs:
       run: cd tools && ./gradlew setupPackages
 
     - name: Test
-      run: cd packages && ./gradlew cran:digest:test
+      run: cd packages && ./gradlew cran:digest:test -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin-release/renjin/tools/gnur-installation/src/main/resources
 
 
