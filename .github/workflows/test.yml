@@ -28,6 +28,6 @@ jobs:
       run: cd renjin && ./gradlew build
 
     - name: Test
-      run: cd packages && ./gradlew cran:digest:test -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
+      run: cd packages && ./gradlew compileNamespace -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
 
 
