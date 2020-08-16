@@ -9,8 +9,6 @@ The structure includes:
 
 `renjin`: The main renjin repo, including the intrepreter and core packages
 
-`ci`: Continuous integration system
-
 `packages`: CRAN and BioConductor builds (generated)
 
 `replacement`: Packages that have been replaced for Renjin
@@ -19,11 +17,29 @@ The structure includes:
 
 `libstdc++`: Renjin's build of the C++ standard library
 
-## Checkout
+`tools`: Java program that downloads package sources, sets up gradle build
+
+## Setup
 
 This repository includes related projects as git submodules. To checkout all the submodules, run:
 
     git submodule update --init --recursive
+
+
+Currently, in order to compile packages with C/C++/Fortran code, it is neccessary to provide the 
+absolute path to Renjin's (adapted) R Home directory and GCC plugin. You can add the following lines to your 
+~/.gradle/gradle.properties file:
+
+    renjinHomeDir=$REPO_PATH/renjin/tools/gnur-installation/src/main/resources
+    gccBridgePlugin=$REPO_PATH/renjin/tools/gcc-bridge/compiler/build/bridge.so
+
+
+Where REPO_PATH is the absolute path of the directory to which you have checked out the renjin-release repo. 
+
+As a workaround for Issue #3, you may also need to first build Renjin to ensure that the GCC bridge plugin 
+is compiled.
+
+    cd renjin && ./gradlew build
 
 
 ## Testing 
@@ -36,17 +52,6 @@ To download the included packages and prepare the build, run:
 
     cd tools && ./gradlew setupPackages
 
-
-Currently, in order to compile packages with C/C++/Fortran code, it is neccessary to provide the 
-absolute path to Renjin's (adapted) header files. You can add the following line to your 
-~/.gradle/gradle.properties file:
-
-    renjinHomeDir=$REPO_PATH/renjin/tools/gnur-installation/src/main/resources
-    gccBridgePlugin=$REPO_PATH/renjin/tools/gcc-bridge/compiler/build/bridge.so
-
-
-Where REPO_PATH is the absolute path of the directory to which you have checked out the renjin-release repo. 
-
 Then an individual package can be built and tested by running:
 
     cd packages && ./gradlew cran:ada:test
@@ -56,7 +61,7 @@ Gradle will only re-run the neccessary build tasks.
 
 You can build and test the entire suite by running:
 
-    cd packages && ./gradlew cran:ada:test
+    cd packages && ./gradlew test
 
 
 
