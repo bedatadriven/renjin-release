@@ -40,4 +40,4 @@
 
 [submodule "packages/cran/rlang"]
 	path = packages/cran/rlang
-	url = git@github.com:bedatadriven/org.renjin.cran.rlang.git
+	url = https://github.com/bedatadriven/rlang

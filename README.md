@@ -63,10 +63,23 @@ You can build and test the entire suite by running:
 
     cd packages && ./gradlew test
 
+## Patching packages
+
+Sometimes it neccessary to make a small change to a package, often because the package author inadvertendly
+depends on an implementation detail of GNU (for [example](https://github.com/bedatadriven/org.renjin.cran.rlang/commit/c1fa55b0c594ba72b0e253efd8b5113cd87c4eb7)).
+
+This is supported by forking the release from https://github.com/cran and making the change in the fork. When possible,
+submit a PR to the original package so the change can be incorporated into future versions of the package.
+
+Then add the forked repo as a submodule to this repo. For example:
+
+    cd cran
+    rm -rf rlang
+    git submodule add -f https://github.com/bedatadriven/rlang
 
 
+After you've added it a submodule, you'll need to run the `setupPackages` task again:
 
-
-
+    cd tools && ./gradlew setupPackages
 
 
