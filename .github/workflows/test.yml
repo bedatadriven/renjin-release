@@ -24,8 +24,8 @@ jobs:
       run: cd tools && ./gradlew setupPackages
 
     # Workaround for https://github.com/bedatadriven/renjin-release/issues/3
-    - name: Build Renjin 
-      run: cd renjin && ./gradlew build
+    - name: Build Renjin GCC-Bridge Plugin
+      run: cd renjin && ./gradlew tools:gcc-bridge:gcc-bridge-compiler:compilePlugin
 
     - name: Test
       run: cd packages && ./gradlew compileNamespace -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
