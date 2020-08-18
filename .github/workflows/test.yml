@@ -27,10 +27,11 @@ jobs:
     - name: Build Renjin GCC-Bridge Plugin
       run: cd renjin && ./gradlew tools:gcc-bridge:gcc-bridge-compiler:compilePlugin
 
-    - name: Test
+    - name: Build packages
       run: cd packages && ./gradlew compileNamespace --continue -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
 
     - uses: actions/upload-artifact@v2
+      if: ${{ always() }}
       with:
         name: logs
         path: packages/cran/*/build/*.log
