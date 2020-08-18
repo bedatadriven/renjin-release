@@ -30,4 +30,8 @@ jobs:
     - name: Test
       run: cd packages && ./gradlew compileNamespace -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
 
+    - uses: actions/upload-artifact@v2
+      with:
+        name: logs
+        path: packages/cran/*/build/*.log
 
