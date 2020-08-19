@@ -19,7 +19,6 @@ org.renjin.cran:BiocManager:1.30.4
 org.renjin.cran:BsMD:2013.0718-1
 org.renjin.cran:C50:0.1.2
 org.renjin.cran:CDM:7.3-17
-org.renjin.cran:CDVine:1.4
 org.renjin.cran:CVST:0.2-2
 org.renjin.cran:CircStats:0.2-6
 org.renjin.cran:Ckmeans.1d.dp:4.2.2
@@ -98,6 +97,7 @@ org.renjin.cran:NeuralNetTools:1.5.2
 org.renjin.cran:OAIHarvester:0.3-0
 org.renjin.cran:OpenMPController:0.2-5
 org.renjin.cran:PBSmapping:2.72.1
+org.renjin.cran:PKPDmodels:0.3.2
 org.renjin.cran:PMCMR:4.3
 org.renjin.cran:ParamHelpers:1.12
 org.renjin.cran:PerformanceAnalytics:1.5.3
@@ -233,7 +233,6 @@ org.renjin.cran:carData:3.0-2
 org.renjin.cran:care:1.1.10
 org.renjin.cran:catdata:1.2.1
 org.renjin.cran:cba:0.2-21
-org.renjin.cran:cccd:1.5
 org.renjin.cran:cellranger:1.1.0
 org.renjin.cran:censReg:0.5-26
 org.renjin.cran:checkmate:1.9.3
@@ -279,7 +278,6 @@ org.renjin.cran:csampling:1.2-2.1
 org.renjin.cran:cshapes:0.6
 org.renjin.cran:curl:2.7-renjin-b8*
 org.renjin.cran:cvTools:0.3.2
-org.renjin.cran:d3heatmap:0.6.1.2
 org.renjin.cran:date:1.2-38
 org.renjin.cran:dbplyr:1.4.2
 org.renjin.cran:dbscan:1.1-3
@@ -287,7 +285,6 @@ org.renjin.cran:dcurver:0.9.1
 org.renjin.cran:deSolve:1.23
 org.renjin.cran:debugme:1.1.0
 org.renjin.cran:deepnet:0.2
-org.renjin.cran:degreenet:1.3-3
 org.renjin.cran:deldir:0.1-21
 org.renjin.cran:deltaPlotR:1.6
 org.renjin.cran:dendextend:1.12.0
@@ -299,7 +296,6 @@ org.renjin.cran:dfoptim:2018.2-1
 org.renjin.cran:diagram:1.6.4
 org.renjin.cran:dichromat:2.0-0
 org.renjin.cran:diffobj:0.2.3
-org.renjin.cran:diffusionMap:1.1-0.1
 org.renjin.cran:digest:0.6.19
 org.renjin.cran:dimRed:0.2.3
 org.renjin.cran:directlabels:2018.05.22
@@ -370,7 +366,6 @@ org.renjin.cran:ffbase:0.12.7
 org.renjin.cran:fields:9.8-3
 org.renjin.cran:filehash:2.4-2
 org.renjin.cran:fit.models:0.5-14
-org.renjin.cran:flare:1.6.0
 org.renjin.cran:flashClust:1.01-2
 org.renjin.cran:flexclust:1.4-0
 org.renjin.cran:flexsurv:1.1.1
@@ -424,7 +419,6 @@ org.renjin.cran:ggplot2:3.1.1
 org.renjin.cran:ggplot2movies:0.0.1
 org.renjin.cran:ggpol:0.0.5
 org.renjin.cran:ggpubr:0.2.1
-org.renjin.cran:ggraph:1.0.2
 org.renjin.cran:ggrepel:0.8.1
 org.renjin.cran:ggridges:0.5.1
 org.renjin.cran:ggsci:2.9
@@ -476,23 +470,19 @@ org.renjin.cran:httpuv:null*
 org.renjin.cran:huxtable:4.6.0
 org.renjin.cran:hypergeo:1.2-13
 org.renjin.cran:ibdreg:0.2.5
-org.renjin.cran:igraph:1.2.4.1
 org.renjin.cran:igraphdata:1.0.1
-org.renjin.cran:imbalance:1.0.0
 org.renjin.cran:import:1.1.0
 org.renjin.cran:ineq:0.2-13
-org.renjin.cran:influenceR:0.1.0
 org.renjin.cran:ini:0.3.1
 org.renjin.cran:inline:0.3.15
 org.renjin.cran:inlinedocs:2013.9.3
 org.renjin.cran:insight:0.3.0
-org.renjin.cran:intergraph:2.0-2
 org.renjin.cran:interp:1.0-32
 org.renjin.cran:intervals:0.15.1
 org.renjin.cran:inum:1.0-1
 org.renjin.cran:invgamma:1.1
-org.renjin.cran:iplots:1.1-7.1
 org.renjin.cran:ipred:0.9-9
+org.renjin.cran:irace:3.3
 org.renjin.cran:irlba:2.3.3
 org.renjin.cran:irr:0.84.1
 org.renjin.cran:isa2:0.3.5
@@ -508,7 +498,6 @@ org.renjin.cran:kdecopula:0.9.2
 org.renjin.cran:kerdiest:1.2
 org.renjin.cran:kernlab:0.9-27
 org.renjin.cran:kinship2:1.8.4
-org.renjin.cran:kknn:1.3.1
 org.renjin.cran:kmi:0.5.5
 org.renjin.cran:knitr:1.23
 org.renjin.cran:ks:1.11.5
@@ -522,6 +511,7 @@ org.renjin.cran:latentnet:2.8.0
 org.renjin.cran:lattice:0.20-38
 org.renjin.cran:latticeExtra:0.6-28
 org.renjin.cran:lava:1.6.5
+org.renjin.cran:lava.tobit:0.5
 org.renjin.cran:lavaan:0.6-3
 org.renjin.cran:lavaan.survey:1.1.3.1
 org.renjin.cran:lazyeval:0.2.2
@@ -530,6 +520,7 @@ org.renjin.cran:lbfgs:1.2.1
 org.renjin.cran:lbfgsb3c:2018-2.13-1
 org.renjin.cran:lda:1.4.2
 org.renjin.cran:leaps:3.0
+org.renjin.cran:lfe:2.8-3
 org.renjin.cran:lhs:1.0.1
 org.renjin.cran:libcoin:1.0-4
 org.renjin.cran:likert:1.3.5
@@ -552,7 +543,6 @@ org.renjin.cran:lsa:0.73.1
 org.renjin.cran:lsmeans:2.30-0
 org.renjin.cran:ltm:1.1-1
 org.renjin.cran:lubridate:1.7.4
-org.renjin.cran:mRMRe:2.0.9
 org.renjin.cran:magic:1.5-8
 org.renjin.cran:magrittr:1.5
 org.renjin.cran:mail:1.0
@@ -578,6 +568,7 @@ org.renjin.cran:measurements:1.4.0
 org.renjin.cran:measures:0.2
 org.renjin.cran:memoise:1.1.0
 org.renjin.cran:metafor:2.1-0
+org.renjin.cran:mets:1.2.5
 org.renjin.cran:mgcv:1.8-28
 org.renjin.cran:microbenchmark:1.4-6
 org.renjin.cran:mime:0.7
@@ -611,6 +602,7 @@ org.renjin.cran:multcompView:0.1-7
 org.renjin.cran:multgee:1.6.0
 org.renjin.cran:multicool:0.1-10
 org.renjin.cran:multilevel:2.6
+org.renjin.cran:multiwayvcov:1.2.3
 org.renjin.cran:munsell:0.5.0
 org.renjin.cran:mvmeta:0.4.11
 org.renjin.cran:mvnfast:0.2.5
@@ -620,7 +612,6 @@ org.renjin.cran:nanotime:0.2.4
 org.renjin.cran:ncbit:2013.03.29
 org.renjin.cran:neighbr:1.0.2
 org.renjin.cran:network:1.15
-org.renjin.cran:networkD3:0.4
 org.renjin.cran:networkDynamic:0.10.0
 org.renjin.cran:networkDynamicData:0.2.1
 org.renjin.cran:networksis:2.1-3
@@ -670,7 +661,6 @@ org.renjin.cran:penalized:0.9-51
 org.renjin.cran:performance:0.2.0
 org.renjin.cran:permute:0.9-5
 org.renjin.cran:pglm:0.2-1
-org.renjin.cran:phangorn:2.5.5
 org.renjin.cran:pillar:1.4.2
 org.renjin.cran:pingr:1.1.2
 org.renjin.cran:pinp:0.0.7
@@ -685,7 +675,6 @@ org.renjin.cran:plotlyGeoAssets:0.0.2
 org.renjin.cran:pls:2.7-1
 org.renjin.cran:plumber:0.4.6
 org.renjin.cran:plyr:1.8.4
-org.renjin.cran:png:0.1-7
 org.renjin.cran:poLCA:1.4.1
 org.renjin.cran:polspline:1.1.15
 org.renjin.cran:polyclip:1.10-0
@@ -813,13 +802,11 @@ org.renjin.cran:sfsmisc:1.1-4
 org.renjin.cran:sgeostat:1.0-27
 org.renjin.cran:shape:1.4.4
 org.renjin.cran:shapefiles:0.7
-org.renjin.cran:showimage:1.0.0
 org.renjin.cran:sirt:3.5-53
 org.renjin.cran:skellam:0.2.0
 org.renjin.cran:skewt:0.1
 org.renjin.cran:skmeans:0.2-11
 org.renjin.cran:slam:0.1-45
-org.renjin.cran:smotefamily:1.3.1
 org.renjin.cran:sn:1.5-4
 org.renjin.cran:sna:2.4
 org.renjin.cran:snakecase:0.11.0
@@ -883,7 +870,6 @@ org.renjin.cran:tgp:2.4-14
 org.renjin.cran:tibble:2.1.3
 org.renjin.cran:tidyr:0.8.3
 org.renjin.cran:tidyselect:0.2.5
-org.renjin.cran:tikzDevice:0.12
 org.renjin.cran:timeDate:3043.102
 org.renjin.cran:timeSeries:3042.102
 org.renjin.cran:timereg:1.9.3
