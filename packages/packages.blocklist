@@ -24,6 +24,7 @@ jpeg
 magick
 webp
 png
+devEMF
 gdtools # Requires Cairo
 
 # Font-related wrappers
@@ -210,6 +211,4 @@ ranger       # GCC-bridge produces invalid bytecode
 TMB          # Object '.shlib_internal' not found
 
 
-		
-
-
+	
