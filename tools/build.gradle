@@ -18,6 +18,7 @@ dependencies {
 task('updatePackageList', dependsOn: 'classes', type: JavaExec) {
     main = 'org.renjin.release.UpdatePackageList'
     classpath = sourceSets.main.runtimeClasspath
+    args projectDir.parentFile
 }
 
 task('setupPackages', dependsOn: 'classes', type: JavaExec) {

@@ -162,8 +162,8 @@ public class PackageSetupTask implements Runnable {
     writer.println();
     writer.println("apply plugin: 'org.renjin.package'");
 
-    boolean blacklisted = packageIndex.getBlocklist().isBlacklisted(id.getPackageName());
-    boolean needsCompilation = description.isNeedsCompilation() && !blacklisted;
+    boolean blocked = packageIndex.getBlocklist().isBlocked(id.getPackageName());
+    boolean needsCompilation = description.isNeedsCompilation() && !blocked;
 
     if(needsCompilation) {
       writer.println("apply plugin: 'org.renjin.native-sources'");
@@ -178,7 +178,7 @@ public class PackageSetupTask implements Runnable {
     if(needsCompilation) {
       addDependency(writer, description.getLinkingTo(), "link");
     }
-    addDependency(writer, nonBlacklistedSuggests(description), "testRuntime");
+    addDependency(writer, nonBlockedSuggests(description), "testRuntime");
 
     if(needsCompilation && hasCplusplusSources(packageDir)) {
       writer.println("  compile 'org.renjin:libstdcxx:4.7.4-b34'");
@@ -190,7 +190,7 @@ public class PackageSetupTask implements Runnable {
     writer.println("}");
 
 
-    if(blacklisted) {
+    if(blocked) {
       writer.println();
       writer.println("configure.enabled = false");
       writer.println("testNamespace.enabled = false");
@@ -232,10 +232,10 @@ public class PackageSetupTask implements Runnable {
     return "";
   }
 
-  private Iterable<PackageDependency> nonBlacklistedSuggests(PackageDescription description) {
+  private Iterable<PackageDependency> nonBlockedSuggests(PackageDescription description) {
     return Lists.newArrayList(description.getSuggests())
       .stream()
-      .filter(d -> !packageIndex.getBlocklist().isBlacklisted(d.getName()))
+      .filter(d -> !packageIndex.getBlocklist().isBlocked(d.getName()))
       .collect(Collectors.toList());
   }
 

@@ -31,7 +31,7 @@ public class PackageNode implements Serializable {
 
   private String replacedVersion;
 
-  private boolean blacklisted;
+  private boolean blocked;
 
 
   public PackageNode(PackageVersionId packageVersionId, Future<Set<DependencyEdge>> dependencies) {
@@ -43,12 +43,12 @@ public class PackageNode implements Serializable {
     return packageVersionId;
   }
 
-  public boolean isBlacklisted() {
-    return blacklisted;
+  public boolean isBlocked() {
+    return blocked;
   }
 
-  public void setBlacklisted(boolean blacklisted) {
-    this.blacklisted = blacklisted;
+  public void setBlocked(boolean blocked) {
+    this.blocked = blocked;
   }
 
   @Override

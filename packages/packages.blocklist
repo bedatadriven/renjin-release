@@ -23,6 +23,7 @@ gifski
 jpeg
 magick
 webp
+png
 gdtools # Requires Cairo
 
 # Font-related wrappers
