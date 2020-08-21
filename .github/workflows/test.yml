@@ -29,6 +29,9 @@ jobs:
 
     - name: Build packages
       run: cd packages && ./gradlew compileNamespace --continue -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
+ 
+    - name: Test packages
+      run: cd packages && ./gradlew test --continue -PrenjinHomeDir=$GITHUB_WORKSPACE/renjin/tools/gnur-installation/src/main/resources -PgccBridgePlugin=$GITHUB_WORKSPACE/renjin/tools/gcc-bridge/compiler/build/bridge.so
 
     - uses: actions/upload-artifact@v2
       if: ${{ always() }}
