@@ -123,7 +123,7 @@ public class PackageGraphBuilder {
           node.replaced(resolvedDependency.getReplacementVersion());
         } else {
           node = new PackageNode(pvid, resolveDependencies(resolvedDependency));
-          node.setBlacklisted(blocklist.isBlacklisted(pvid.getPackageName()));
+          node.setBlocked(blocklist.isBlocked(pvid.getPackageName()));
         }
         nodes.put(node.getId().getPackageId(), node);
       }
@@ -137,7 +137,7 @@ public class PackageGraphBuilder {
       PackageNode node = nodes.get(packageId);
       if(node == null) {
         node = new PackageNode(new PackageVersionId(packageId, "0"), Futures.immediateFuture(Collections.emptySet()));
-        node.setBlacklisted(true);
+        node.setBlocked(true);
         nodes.put(packageId, node);
       }
       return new DependencyEdge(node, resolvedDependency.isOptional());
@@ -211,30 +211,30 @@ public class PackageGraphBuilder {
       }
     }
 
-    // Propagate blacklisted flag
-    List<PackageNode> blacklisted = nodes.values()
+    // Propagate blocked flag
+    List<PackageNode> blockList = nodes.values()
       .stream()
-      .filter(n -> n.isBlacklisted())
+      .filter(n -> n.isBlocked())
       .collect(Collectors.toList());
 
-    for (PackageNode node : blacklisted) {
-      if(node.isBlacklisted()) {
-        propagateBlacklistedStatus(node.getId().getPackageName(), node);
+    for (PackageNode node : blockList) {
+      if(node.isBlocked()) {
+        propagateBlockedStatus(node.getId().getPackageName(), node);
       }
     }
 
-    // Remove blacklisted nodes from the graph
-    nodes.values().removeIf(PackageNode::isBlacklisted);
+    // Remove blocked nodes from the graph
+    nodes.values().removeIf(PackageNode::isBlocked);
 
     return new PackageGraph(nodes);
   }
 
-  private void propagateBlacklistedStatus(String packageName, PackageNode node) {
+  private void propagateBlockedStatus(String packageName, PackageNode node) {
     for (PackageNode reverseDependency : node.getReverseDependencies()) {
-      if(!reverseDependency.isBlacklisted()) {
-        System.out.println("Blacklisting " + reverseDependency.getId().getPackageName() + " because of (transitive) dependency on " + packageName);
-        reverseDependency.setBlacklisted(true);
-        propagateBlacklistedStatus(node.getId().getPackageName(), reverseDependency);
+      if(!reverseDependency.isBlocked()) {
+        System.out.println("Blocking " + reverseDependency.getId().getPackageName() + " because of (transitive) dependency on " + packageName);
+        reverseDependency.setBlocked(true);
+        propagateBlockedStatus(node.getId().getPackageName(), reverseDependency);
       }
     }
   }

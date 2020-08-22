@@ -4,9 +4,6 @@
 [submodule "renjin"]
 	path = renjin
 	url = git@github.com:bedatadriven/renjin
-[submodule "ci"]
-	path = ci
-	url = git@bitbucket.org:bedatadriven/renjin-ci.git
 [submodule "gradle-plugin"]
 	path = gradle-plugin
 	url = git@github.com:bedatadriven/renjin-gradle-plugin.git
