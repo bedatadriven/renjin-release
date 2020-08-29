@@ -2,5 +2,5 @@
 /.idea/
 /ubuntu-xenial-16.04-cloudimg-console.log
 /**/.gradle
-/packages/cran
+/packages/cran/**
 /tools/build

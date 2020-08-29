@@ -1,1 +1,3 @@
 rootProject.name = 'renjin-gradle-plugin'
+
+include 'tools'

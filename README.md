@@ -25,15 +25,20 @@ This repository includes related projects as git submodules. To checkout all the
 
     git submodule update --init --recursive
 
+To update the submodules to the latest version of a checked out project you can do
 
-Currently, in order to compile packages with C/C++/Fortran code, it is neccessary to provide the 
+    git submodule update --remote
+    
+See the git [documentation on submodules](https://git-scm.com/docs/git-submodule) for more information.    
+    
+Currently, in order to compile packages with C/C++/Fortran code, it is necessary to provide the 
 absolute path to Renjin's (adapted) R Home directory and GCC plugin. You can add the following lines to your 
 ~/.gradle/gradle.properties file:
 
     renjinHomeDir=$REPO_PATH/renjin/tools/gnur-installation/src/main/resources
     gccBridgePlugin=$REPO_PATH/renjin/tools/gcc-bridge/compiler/build/bridge.so
-
-
+    
+   
 Where REPO_PATH is the absolute path of the directory to which you have checked out the renjin-release repo. 
 
 As a workaround for Issue #3, you may also need to first build Renjin to ensure that the GCC bridge plugin 
@@ -41,6 +46,9 @@ is compiled.
 
     cd renjin && ./gradlew build
 
+After this, build the libstdc++ project:
+    
+    cd libstdc++ && ./gradlew build      
 
 ## Testing 
 
@@ -62,6 +70,26 @@ Gradle will only re-run the neccessary build tasks.
 You can build and test the entire suite by running:
 
     cd packages && ./gradlew test
+
+## Building with vagrant
+You need GCC 4.7.4 to build renjin and libstdc++. If you do not have that installed (e.g you are on windows or
+a Linux distribution that does not have it) you can use vagrant to build.
+
+`vagrant up`
+    /home/vagrant/.gradle/gradle.properties will be created with the proper paths for renjinHomeDir and
+    gccBridgePlugin respectively
+`vagrant ssh`
+`cd /home/ubuntu/renjin-release`
+
+Build the supporting projects
+`cd renjin && ./gradlew build && cd ..`
+`cd gradle-plugin && ./gradlew build && cd ..`
+`cd libstdc++ && ./gradlew build && cd ..`
+
+Set up the packages
+`./gradlew tools:setupPackages`
+Run a test
+`cd packages && ./gradlew cran:digest:test`  
 
 ## Patching packages
 
