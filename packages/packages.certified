@@ -156,7 +156,6 @@ pingr
 pinp
 PMCMR
 poLCA
-polspline
 polycor
 prettydoc
 prettyGraphs
@@ -216,12 +215,10 @@ spam64
 sparsepp
 spatstat.data
 spd
-spls
 stable
 statnet
 stepPlr
 stopwords
-subplex
 superpc
 tensor
 TH.data
