@@ -1,6 +1,6 @@
 
 
-# These packages have passed all test in the past,
+# These packages have passed all test in the past
 
 acepack
 ada
@@ -48,6 +48,8 @@ devEMF
 dfoptim
 diagram
 dichromat
+digest:
+- sha1Test.R: floating point values are different, but within tolerances
 DiscriMiner
 disposables
 doMC
@@ -83,6 +85,7 @@ ggdendro
 ggplot2movies
 ggsci
 ggsignif
+gld
 glm2
 goftest
 gpclib
@@ -120,6 +123,10 @@ mail
 mallet
 manipulate
 maptree
+MASS
+- epil.Rd
+- lda.Rd: not sure about this one
+- stepAIC.Rd: not sure about this one 
 mda
 measures
 mime
@@ -222,6 +229,7 @@ stopwords
 superpc
 tensor
 TH.data
+tree
 triangle
 tripack
 truncdist
