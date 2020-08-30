@@ -1,0 +1,91 @@
+
+
+tasks.register("checkTests") {
+
+
+    configure { task ->
+
+        // Always re-run this task.
+        // The actual tests will _only_ be re-run if the tests themselves change,
+        // or the
+        task.outputs.upToDateWhen { false }
+
+        task.ext.profile = project.property("testsuite")
+        def pkgFile = new File("${profile}.testsuite")
+
+        // Parse the test profile list
+        task.ext.profileMap = new HashMap<String, List<String>>()
+
+        def pkgList = new ArrayList<String>()
+        def currentPkg;
+        for (line in pkgFile) {
+            def lineTrim = line.trim()
+            if (!lineTrim.startsWith('#') && !line.isBlank() && !lineTrim.startsWith("-")) {
+                if (lineTrim.contains(":")) {
+                    lineTrim = lineTrim.replace('org.renjin.cran:', '')
+                    if (lineTrim.contains(":")) {
+                        lineTrim = lineTrim.substring(0, lineTrim.indexOf(':'))
+                    }
+                }
+                currentPkg = lineTrim;
+                pkgList.add(currentPkg)
+                def exceptionList = profileMap.get(currentPkg);
+                if (exceptionList == null) {
+                    exceptionList = new ArrayList<String>()
+                    profileMap.put(currentPkg, exceptionList)
+                }
+            } else if (lineTrim.startsWith("-") && currentPkg != null) {
+                def exceptionList = profileMap.get(currentPkg)
+                def exclusion
+                if (lineTrim.contains(":")) {
+                    exclusion = lineTrim.substring(1, lineTrim.indexOf(':')).trim()
+                } else {
+                    exclusion = lineTrim.substring(1).trim()
+                    if (exclusion.contains(" ")) {
+                        exclusion = exclusion.substring(0, exclusion.indexOf(' '))
+                    }
+                }
+                //println("Adding exclusion for $exclusion for package $currentPkg")
+                exceptionList.add(exclusion)
+            }
+        }
+
+        // Add the package test task as a dependency of this task
+        pkgList.forEach {
+            task.dependsOn "cran:$it:testNamespace"
+        }
+
+    }
+
+    doLast {
+        def failureDetected = false;
+        def numFailures = 0
+
+        profileMap.each { pkg, exclusions ->
+            def testFile = new File("${projectDir}/cran/${pkg}/build/renjin-test-reports/renjin-test-results.log")
+            if (!testFile.exists()) {
+                throw new GradleException("$testFile.absolutePath does not exist")
+            }
+            for (line in testFile) {
+                if (line.endsWith("fail")) {
+                    def testName = line.substring(0, line.indexOf(' '))
+                    if (exclusions.contains(testName)) {
+                        println("$pkg: Failure detected but the test $testName is excluded in the $profile list")
+                    } else {
+                        println("$pkg: Failure detected: $line")
+                        failureDetected = true
+                        numFailures++
+                    }
+                }
+            }
+            if (!failureDetected) {
+                println("$pkg: all mandatory tests passed")
+            }
+        }
+        if (failureDetected) {
+            throw new GradleException("$numFailures failure(s) detected, checkTests for profile \"$profile\" was NOT successful")
+        } else {
+            println("\nAll tests in the $profileMap.size packages of profile \"$profile\" checked and verified, good to go!")
+        }
+    }
+}

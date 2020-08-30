@@ -189,16 +189,10 @@ public class PackageSetupTask implements Runnable {
 
     writer.println("}");
 
-
     if(blocked) {
       writer.println();
       writer.println("configure.enabled = false");
       writer.println("testNamespace.enabled = false");
-    }
-
-    if(!packageIndex.getBlocklist().isCertified(this.id)) {
-      writer.println();
-      writer.println("testNamespace.ignoreFailures = true;");
     }
   }
 

@@ -11,16 +11,12 @@ import java.util.Set;
 
 public class Blocklist {
 
-  private final Set<String> certified;
   private final Set<String> blocked;
 
   public Blocklist(File packageRootDirectory) throws IOException {
 
     File blockListFile = new File(packageRootDirectory, "packages.blocklist");
     this.blocked = parsePackageList(blockListFile);
-
-    File certifiedFile = new File(packageRootDirectory, "packages.certified");
-    this.certified = parsePackageList(certifiedFile);
   }
 
   public static Set<String> parsePackageList(File blockListFile) throws IOException {
@@ -53,7 +49,4 @@ public class Blocklist {
     return id.getGroupId().equals("org.renjin.cran") && blocked.contains(id.getPackageName());
   }
 
-  public boolean isCertified(PackageVersionId id) {
-    return certified.contains(id.getPackageName());
-  }
 }

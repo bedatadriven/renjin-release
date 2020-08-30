@@ -6,6 +6,15 @@ buildscript {
 }
 
 apply from: 'gradle/report.gradle'
+apply from: 'gradle/checkTests.gradle'
+
+// N.B. In order to benefit from Gradle's configuration-on-demand, it is important
+// to avoid the user of "allProjects" or "subprojects" blocks here.
+// Otherwise _every_ build will trigger the configuration of _every single_ package,
+// even if a small number are being built or tested.
+
+// See: https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:configuration_on_demand
+
 
 def profile = System.getProperty("profile", "list")
 def pkgList = new ArrayList<String>()

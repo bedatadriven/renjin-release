@@ -1,4 +1,4 @@
-# profile file syntax
+# Profile file syntax
 A profile list is a text file whose name begins with `packages.` and ends with the profile name.
 The profile list contains names of packages (submodules) that should be included and also
 possible waivers for test failures.
@@ -26,8 +26,16 @@ MASS
 This task depends on the reunTests task so there is no need to first run the runTests task
 and then the checkTests task
 
+### Running the smoketest test suite
+The smoketest testsuite includes a small number of packages and their test waivers
+that can be run in short amount of time.
+
+`./gradlew -Ptestsuite=smoketest checkTests`
+
 ### Force rerun of a test
+
 `./gradlew --rerun-tasks -a test`
+
 Note: `-a` is to not rebuild project dependencies (renjin etc.)
 
 e.g.

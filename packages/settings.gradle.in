@@ -1,0 +1,41 @@
+
+
+includeBuild('../renjin') {
+    dependencySubstitution {
+        substitute module('org.renjin:gcc-bridge-compiler') with project(':tools:gcc-bridge:gcc-bridge-compiler')
+        substitute module('org.renjin:gcc-bridge-runtime') with project(':tools:gcc-bridge:runtime')
+
+        substitute module('org.renjin:renjin-gnur-compiler') with project(':tools:gnur-compiler')
+        substitute module('org.renjin:renjin-gnur-runtime') with project(':tools:gnur-runtime')
+
+        substitute module('org.renjin:renjin-core') with project(':core')
+        substitute module('org.renjin:renjin-packager') with project(':tools:packager')
+
+        substitute module('org.renjin:renjin-cli') with project(':cli')
+
+        substitute module('org.renjin:renjin-nmath') with project(':math:nmath')
+
+        substitute module('org.renjin:compiler') with project(':packages:compiler')
+        substitute module('org.renjin:datasets') with project(':packages:datasets')
+        substitute module('org.renjin:graphics') with project(':packages:graphics')
+        substitute module('org.renjin:grDevices') with project(':packages:grDevices')
+        substitute module('org.renjin:grid') with project(':packages:grid')
+        substitute module('org.renjin:hamcrest') with project(':packages:hamcrest')
+        substitute module('org.renjin:methods') with project(':packages:methods')
+        substitute module('org.renjin:parallel') with project(':packages:parallel')
+        substitute module('org.renjin:splines') with project(':packages:splines')
+        substitute module('org.renjin:stats') with project(':packages:stats')
+        substitute module('org.renjin:stats4') with project(':packages:stats4')
+        substitute module('org.renjin:tcltk') with project(':packages:tcltk')
+        substitute module('org.renjin:tools') with project(':packages:tools')
+        substitute module('org.renjin:utils') with project(':packages:utils')
+    }
+}
+
+includeBuild '../gradle-plugin'
+includeBuild('../libstdc++') {
+    dependencySubstitution {
+        substitute module('org.renjin:libstdcxx') with project(':')
+    }
+}
+
