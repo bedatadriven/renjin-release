@@ -3,4 +3,5 @@
 /ubuntu-xenial-16.04-cloudimg-console.log
 /**/.gradle
 /packages/cran
+/packages/settings.gradle
 /tools/build

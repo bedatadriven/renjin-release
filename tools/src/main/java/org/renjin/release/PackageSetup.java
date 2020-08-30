@@ -1,6 +1,7 @@
 package org.renjin.release;
 
 import com.google.common.base.Charsets;
+import com.google.common.io.CharSource;
 import com.google.common.io.Files;
 import org.renjin.release.graph.ReplacedPackageProvider;
 import org.renjin.release.model.PackageVersionId;
@@ -53,18 +54,13 @@ public class PackageSetup {
   }
 
   private static void updateSettingsFile(File rootDir, PackageIndex packageIndex, ReplacedPackageProvider replacedPackages) throws IOException {
+    File settingsInFile = new File(rootDir, "settings.gradle.in");
     File settingsFile = new File(rootDir, "settings.gradle");
-    List<String> lines = Files.readLines(settingsFile, Charsets.UTF_8);
+
+    CharSource settinsgsIn = Files.asCharSource(settingsInFile, Charsets.UTF_8);
 
     StringBuilder updated = new StringBuilder();
-    for (String line : lines) {
-      if(!line.startsWith("include 'cran:") && !line.startsWith("includeBuild '../replacements/")) {
-        updated.append(line).append("\n");
-      }
-    }
-    while(updated.length() > 0 && updated.charAt(updated.length() - 1) == '\n') {
-      updated.setLength(updated.length() - 1);
-    }
+    settinsgsIn.copyTo(updated);
     updated.append("\n\n");
 
     replacedPackages.appendIncludeBuilds(updated);
