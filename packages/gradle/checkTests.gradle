@@ -64,7 +64,8 @@ tasks.register("checkTests") {
         profileMap.each { pkg, exclusions ->
             def testFile = new File("${projectDir}/cran/${pkg}/build/renjin-test-reports/renjin-test-results.log")
             if (!testFile.exists()) {
-                throw new GradleException("$testFile.absolutePath does not exist")
+            	println("$pkg: $testFile.absolutePath does not exist")
+            	failureDetected = true;
             }
             for (line in testFile) {
                 if (line.endsWith("fail")) {
