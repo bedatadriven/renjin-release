@@ -1,0 +1,7 @@
+date
+digest
+- sha1Test.R: floating point values are different, but within tolerances
+MASS
+- epil.Rd
+-lda.Rd: not sure about this one
+- stepAIC.Rd: not sure about this one

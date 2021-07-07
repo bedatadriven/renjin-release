@@ -1,5 +1,4 @@
 
-
 buildscript {
   dependencies {
     classpath "org.renjin:renjin-gradle-plugin:+"
@@ -15,5 +14,134 @@ apply from: 'gradle/checkTests.gradle'
 // even if a small number are being built or tested.
 
 // See: https://docs.gradle.org/current/userguide/multi_project_builds.html#sec:configuration_on_demand
+
+
+def profile = System.getProperty("profile", "list")
+def pkgList = new ArrayList<String>()
+def projectList = new ArrayList<Project>()
+
+def pkgFile = new File("packages." + profile)
+for (line in pkgFile) {
+  def lineTrim = line.trim()
+  if (!lineTrim.startsWith('#') && !line.isBlank() && !lineTrim.startsWith("-")) {
+    if (lineTrim.contains(":")) {
+      lineTrim = lineTrim.replace('org.renjin.cran:', '')
+      if (lineTrim.contains(":")) {
+        lineTrim = lineTrim.substring(0, lineTrim.indexOf(':'))
+      }
+    }
+    pkgList.add(lineTrim)
+  }
+}
+
+// This is just here for testing purposes, to make sure all tests are actually run if not built before
+tasks.register("cleanTests") {
+  configure {
+    print("Cleaning ")
+    for (subProject in subprojects) {
+      if (pkgList.contains(subProject.name)) {
+        print("$subProject.name, ")
+        dependsOn subProject.tasks.clean
+      }
+    }
+    println()
+  }
+}
+
+tasks.register("runTests") {
+  configure {
+    print("Running tests in ")
+    for (subProject in subprojects) {
+      if (pkgList.contains(subProject.name)) {
+        print("$subProject.name, ")
+        projectList.add(subProject);
+        subProject.tasks.testNamespace.ignoreFailures = true
+
+        // not sure which one is best to depend on: test or testNamespace
+        dependsOn subProject.tasks.test
+        //dependsOn subProject.tasks.testNamespace
+      }
+    }
+    println()
+  }
+}
+
+tasks.register("checkTests") {
+  dependsOn 'runTests'
+
+  ext.parseProfile = {
+    //println("parsing $pkgFile...")
+    def profileMap = new HashMap<String, List<String>>()
+    def currentPkg;
+    for (line in pkgFile) {
+      def lineTrim = line.trim()
+      if (!lineTrim.startsWith('#') && !line.isBlank() && !lineTrim.startsWith("-")) {
+        if (lineTrim.contains(":")) {
+          lineTrim = lineTrim.replace('org.renjin.cran:', '')
+          if (lineTrim.contains(":")) {
+            lineTrim = lineTrim.substring(0, lineTrim.indexOf(':'))
+          }
+        }
+        currentPkg = lineTrim;
+        def exceptionList = profileMap.get(currentPkg);
+        if (exceptionList == null) {
+          exceptionList = new ArrayList<String>()
+          profileMap.put(currentPkg, exceptionList)
+        }
+      } else if (lineTrim.startsWith("-") && currentPkg != null) {
+        def exceptionList = profileMap.get(currentPkg)
+        def exclusion
+        if (lineTrim.contains(":")) {
+          exclusion = lineTrim.substring(1, lineTrim.indexOf(':')).trim()
+        } else {
+          exclusion = lineTrim.substring(1).trim()
+          if (exclusion.contains(" ")) {
+            exclusion = exclusion.substring(0, exclusion.indexOf(' '))
+          }
+        }
+        //println("Adding exclusion for $exclusion for package $currentPkg")
+        exceptionList.add(exclusion)
+      }
+    }
+    return(profileMap)
+  }
+
+  doLast() {
+    def failureDetected = false;
+    def numFailures = 0
+    def profileMap = parseProfile()
+    for (p in projectList) {
+      def testFile = new File(p.buildDir, "renjin-test-reports/renjin-test-results.log")
+      if (!testFile.exists()) {
+        throw new GradleException("$testFile.absolutePath does not exist")
+      }
+      def exclusions = profileMap.get(p.name)
+      for (line in testFile) {
+        if (line.endsWith("fail")) {
+          def testName = line.substring(0, line.indexOf(' '))
+          if (exclusions.contains(testName)) {
+            println("$p.name: Failure detected but the test $testName is excluded in the $profile list")
+          } else {
+            println("$p.name: Failure detected: $line")
+            failureDetected = true
+            numFailures++
+          }
+        }
+      }
+      if (!failureDetected) {
+        println("$p.name: all mandatory tests passed")
+      }
+    }
+    if (failureDetected) {
+      throw new GradleException("$numFailures failure(s) detected, checkTests for profile \"$profile\" was NOT successful")
+    } else {
+      println("\nAll tests in the $projectList.size packages of profile \"$profile\" checked and verified, good to go!")
+    }
+  }
+}
+
+
+tasks.getByName("checkTests").outputs.upToDateWhen { false }
+
 
 
