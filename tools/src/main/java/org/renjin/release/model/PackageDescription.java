@@ -252,8 +252,12 @@ public class PackageDescription {
 		return getFirstProperty("License");
 	}
 
-	public String getUrl() {
-		return getFirstProperty("URL");
+	public List<String> getUrls() {
+		List<String> list = new ArrayList<>();
+		for (String url : getProperty("URL")) {
+			list.addAll(Arrays.asList(url.split(",\\S*")));
+		}
+		return list;
 	}
 
 	public Iterable<String> getProperties() {

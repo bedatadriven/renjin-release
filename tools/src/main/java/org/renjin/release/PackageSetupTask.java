@@ -3,6 +3,8 @@ package org.renjin.release;
 import com.google.common.base.Charsets;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import com.google.common.escape.Escaper;
+import com.google.common.escape.Escapers;
 import com.google.common.io.ByteStreams;
 import com.google.common.io.Files;
 import org.renjin.release.model.CorePackages;
@@ -22,6 +24,10 @@ import java.util.stream.Collectors;
  * Downloads source and writes build file for an individual package.
  */
 public class PackageSetupTask implements Runnable {
+
+  private static final Escaper GROOVY_ESCAPER = Escapers.builder()
+          .addEscape('\'', "\\'")
+          .build();
 
   private static final Logger LOGGER = Logger.getLogger(PackageSetupTask.class.getName());
 
@@ -161,6 +167,7 @@ public class PackageSetupTask implements Runnable {
     writer.println("group = '" + id.getGroupId() + "'");
     writer.println();
     writer.println("apply plugin: 'org.renjin.package'");
+    writer.println("apply plugin: 'maven-publish'");
 
     boolean blocked = packageIndex.getBlocklist().isBlocked(id.getPackageName());
     boolean needsCompilation = description.isNeedsCompilation() && !blocked;
@@ -194,6 +201,54 @@ public class PackageSetupTask implements Runnable {
       writer.println("configure.enabled = false");
       writer.println("testNamespace.enabled = false");
     }
+
+    writer.println();
+    writer.println();
+    writer.println("publishing {");
+    writer.println("  publications {");
+    writer.println("    maven(MavenPublication) {");
+    writer.println("      groupId = " + quoteString(id.getGroupId()));
+    writer.println("      version = " + quoteString(id.getVersionString() + buildSuffix()));
+    writer.println("      description = " + quoteString(description.getTitle()));
+    writer.println();
+    writer.println("      from components.java");
+    writer.println("    }");
+    writer.println("  }");
+
+    if(!Strings.isNullOrEmpty(System.getenv("RENJIN_RELEASE")) &&
+       !Strings.isNullOrEmpty(System.getenv("BUILD_NUMBER"))) {
+
+      writer.println("  repositories {");
+      writer.println("    maven {");
+      writer.println("      url = " + quoteString("gcs://renjin-staging/" + System.getenv("BUILD_NUMBER") + "/"));
+      writer.println("    }");
+      writer.println("  }");
+    }
+
+    writer.println("}");
+  }
+
+  private String buildSuffix() {
+    String renjinRelease = System.getenv("RENJIN_RELEASE");
+    if(!Strings.isNullOrEmpty(renjinRelease)) {
+      return "-b" + buildNumberFromVersionString(renjinRelease);
+    } else {
+      return "-dev";
+    }
+  }
+
+  private long buildNumberFromVersionString(String renjinVersion) {
+    String[] parts = renjinVersion.split("\\.");
+    if(parts.length != 3) {
+      throw new IllegalArgumentException("Expected Renin version with 3 parts: " + renjinVersion);
+    }
+    return Integer.parseInt(parts[0]) * 10_000L +
+            Integer.parseInt(parts[1]) * 100L +
+            Integer.parseInt(parts[2]);
+  }
+
+  private String quoteString(String title) {
+    return "'" + GROOVY_ESCAPER.escape(title) + "'";
   }
 
   private void maybeApplyCxxStandard(PrintWriter writer, PackageDescription description) {
