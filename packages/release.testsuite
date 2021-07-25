@@ -238,6 +238,8 @@ ucminf
 uroot
 variables
 VarianceGamma
+- VarianceGamma.Rd: this test previously passed, but cannot reproduce success even at same commit id. Potentially flakely, or was previously a false negative in our build system.
+- vgFit.Rd: this test previously passed, but cannot reproduce success even at same commit id. Potentially flakely, or was previously a false negative in our build system.
 Vdgraph
 viridis
 viridisLite
