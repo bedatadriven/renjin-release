@@ -220,7 +220,7 @@ public class PackageSetupTask implements Runnable {
 
       writer.println("  repositories {");
       writer.println("    maven {");
-      writer.println("      url = " + quoteString("gcs://renjin-staging/" + System.getenv("BUILD_NUMBER") + "/"));
+      writer.println("      url = " + quoteString("gcs://renjin-staging/" + System.getenv("BUILD_NUMBER") + "/m2/"));
       writer.println("    }");
       writer.println("  }");
     }
